@@ -2,7 +2,13 @@
 
 ## Description
 
-This project aims to provide a big data platform for parliamentary transparency.
+This project aims to provide a big data platform for parliamentary transparency.  
+The platform will contain data from the [Moroccan Chamber of Deputies](https://www.chambredesrepresentants.ma/fr/). We are concerned about written questions, oral questions and government engagements.  
+We mainly have 3 main tasks to accomplish:
+
+1. Collecting data from the Moroccan Chamber of Deputies website.
+2. Implementing a big data infrastucture for data storage and preprocessing.
+3. Building a web application or dashboard to visualize data.
 
 ## Setup
 
