@@ -34,7 +34,7 @@ class WrittenQuestionsSpider(scrapy.Spider):
         second_part = question_div.xpath("./div[2]") # for author
         third_part = question_div.xpath("./div[3]") # for ministry, date and question
         # get id, subject and date of answer
-        id = first_part.xpath("./div[1]//text()").get().strip()[-5:]
+        id = first_part.xpath("./div[1]//text()").get().strip()[13:]
         subject = first_part.xpath("./div[2]//text()").get().strip()[8:]
         answer_date = first_part.xpath("./div[3]//text()")[-1].get()
         # get author
@@ -53,4 +53,3 @@ class WrittenQuestionsSpider(scrapy.Spider):
             "subject": subject,
             "question": question
         }
-
