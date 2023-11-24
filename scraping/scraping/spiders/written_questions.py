@@ -4,6 +4,7 @@ class WrittenQuestionsSpider(scrapy.Spider):
     
     name = "written_questions"
     start_urls = ["https://www.chambredesrepresentants.ma/fr/questions-ecrites/"]
+    n_page = 1
 
     def parse(self, response):
         """ Parse the main questions page
@@ -17,7 +18,8 @@ class WrittenQuestionsSpider(scrapy.Spider):
             yield response.follow(question_link, callback=self.parse_question)
         # get the next page
         next_page = response.css("ul.pagination li.next a::attr(href)").get()
-        if next_page is not None:
+        if next_page is not None and self.n_page < 3:
+            self.n_page += 1
             yield response.follow(next_page, callback=self.parse)
             
     def parse_question(self, response):
